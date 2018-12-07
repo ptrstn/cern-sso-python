@@ -38,7 +38,7 @@ def _init_session(s, url, cookiejar, auth_url_fragment):
 
     # Try getting the URL we really want, and get redirected to SSO
     log.info("Fetching URL: %s" % url)
-    r1 = s.get(url, timeout=DEFAULT_TIMEOUT_SECONDS)
+    r1 = s.get(url, timeout=DEFAULT_TIMEOUT_SECONDS, verify=False)
 
     # Parse out the session keys from the GET arguments:
     redirect_url = urlparse(r1.url)
